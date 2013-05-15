@@ -4,8 +4,12 @@ MySQLParser
 A Parser for MySQL's SQL.
 
 ### WHAT
-以Select语句为例  
-    SELECT * FROM TableName;  
+以Select语句为例
+
+```
+SELECT * FROM TableName;  
+```
+
 调用which\_type()可以知道是哪一类的SQL语句  
 调用which\_table()可以知道是哪从什么表中获取  
 其他的类似，待添加
