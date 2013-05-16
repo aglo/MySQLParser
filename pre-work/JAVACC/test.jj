@@ -5,7 +5,7 @@ options {
 
 PARSER_BEGIN(Adder)
 
-package com.anjuke.corp.mysqlparser;
+//package com.anjuke.corp.mysqlparser;
 
     class Adder{
         public static void main(String [] args)
@@ -22,11 +22,21 @@ SKIP : {"\n" | "\r" | "\r\n" }
 TOKEN : {< PLUS : "+" >}
 TOKEN : {< NUMBER : (["0"-"9"])+ >}
 
-void Start():
-{}{
-    <NUMBER>(
+int Start() throws NumberFormatException:{
+    Token t;
+    int i;
+    int value;
+}{
+    t = <NUMBER>
+    { i = Integer.parseInt(t.image);}
+    { value = i;}
+    (
         <PLUS>
-        <NUMBER>
+        t = <NUMBER>
+        {i = Integer.parseInt(t.image);}
+        {value += i;}
     )*
     <EOF>
+    {System.out.print(value);}
+    {return value;}
 }
