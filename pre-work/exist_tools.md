@@ -4,7 +4,7 @@
 ZQL是一个用JAVA写的SQL语法分析工具，他本身是使用JAVACC来写自动生成语法分析程序的。已经可以测试一些简单的SQL语句。
 
 ### JSqlParser
-JSqlParser也是一个用JAVACC写的语法分析工具。待评估
+JSqlParser也是一个用JAVACC写的语法分析工具。已经测试通过自带测试。
 
 ### JAVACC
 相当于yacc的基于JAVA语言的语法分析程序。使用的自顶向下的分析方法。
