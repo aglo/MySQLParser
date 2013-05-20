@@ -21,6 +21,5 @@ SELECT * FROM TableName;
 + JSqlParser使用JAVACC，正在调研JAVACC的规则。
 
 ### INPUT & OUTPUT
-TODO
 
 ### EXAMPLE
