@@ -17,3 +17,37 @@ C中的语法分析程序，使用的是自下向上的分析方法。
 
 ### GSP(General SQL Parser JAVA Version)
 待评估
+
+
+<table>
+    <tr>
+        <td>名称</td>
+        <td>项目地址</td>
+        <td>优点</td>
+        <td>缺点</td>
+    </tr>
+    <tr>
+        <td>JSqlParser</td>
+        <td>https://github.com/wumpz/JSqlParser</td>
+        <td>长期活跃状态，已经支持较复杂SQL语句</td>
+        <td>工程较大，改动工作量需评估</td>
+    </tr>
+    <tr>
+        <td>ZQL</td>
+        <td>http://zql.sourceforge.net/</td>
+        <td>较小</td>
+        <td>作者指出2002年完成大部分代码，时效性差</td>
+    </tr>
+    <tr>
+        <td>JAVACC</td>
+        <td>https://javacc.java.net/</td>
+        <td>语法分析程序</td>
+        <td>需要从0写Parser</td>
+    </tr>
+    <tr>
+        <td>ANTLR</td>
+        <td>http://www.antlr.org/</td>
+        <td>规则明晰</td>
+        <td>v3.0已有mysql规则，需评估v4.0是否仍支持</td>
+    </tr>
+</table>
