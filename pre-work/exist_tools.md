@@ -42,6 +42,7 @@ ZQL是一个用JAVA写的SQL语法分析工具，他本身是使用JAVACC来写�
 ### JSqlParser
 + JSqlParser也是一个用JAVACC写的语法分析工具。
 + 与ANTLR的mysql语法规则相比较，该工具语法支持的是标准的SQL语句。
++ 不支持mysql中各种函数，系统变量等
 
 ### JAVACC
 + 相当于yacc的基于JAVA语言的语法分析程序。
