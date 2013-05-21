@@ -24,7 +24,3 @@ SELECT
       | INTO var_name [, var_name]]
     [FOR UPDATE | LOCK IN SHARE MODE]]
 ```
-
-
-mysql中有SELECT这样的标示符
-同时[]代表可选项
