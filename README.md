@@ -7,19 +7,20 @@ A Parser for MySQL's SQL.
 以Select语句为例
 
 ```
-SELECT * FROM TableName;  
+SELECT * FROM TableName; # comment by ent-worm
 ```
 
->>>+ 一次分析方法后，获得该语句全部信息，保存在一个对象中
->>>+ 调用对象的方法get\_type()可以知道是哪一类的SQL语句
->>>+ 调用对象的方法get\_table()可以知道是哪从什么表中获取
->>>+ 其他的类似，待添加
->>
->>按照JSqlParser的visitor模式，具体代码仍在阅读
->
->增加如何使用JSqlParser的部分
++ 分析出是select语句
++ 分析出使用了哪些表（包括子查询）
++ 提取comment的内容以供进一步分析
 
-使用Query(sql)，Query提供访问_type和_tables的接口。
+
+>>+ 一次分析方法后，获得该语句全部信息，保存在一个对象中
+>>+ 调用对象的方法get\_type()可以知道是哪一类的SQL语句
+>>+ 调用对象的方法get\_table()可以知道是哪从什么表中获取
+>>+ 其他的类似，待添加
+>
+>按照JSqlParser的visitor模式，具体代码仍在阅读
 
 
 ### HOW
@@ -34,7 +35,10 @@ SELECT * FROM TableName;
 调用方法
 
 ```
+String sql_statement = "select * from table1";
+
 Query q = new Query(sql_statement);
+
 String type = q.getType();
 List<String> tables = q.getTables();
 ```
@@ -44,5 +48,3 @@ List<String> tables = q.getTables();
 + 增加取出#后面注释部分
 + 目前仅支持select的子查询，需要增加支持其他类型语句的子查询
 
-### EXAMPLE
-todo
