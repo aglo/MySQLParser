@@ -30,22 +30,18 @@ then
 fi
 
 # delete "xxxxxxxx (Connect|Quit|...)"
-sed '/[0-9]\+\ \(Quit\|Connect\|Close\)/d' < $IN_FILE > "tmp/tmp1"
+sed '/[0-9]\+\ \(Quit\|Connect\|Close\)/d' < $IN_FILE > "tmp1"
 
 # delete all "\n"
-tr -d '\n' < "tmp/tmp1" > "tmp/tmp2"
+tr -d '\n' < "tmp1" > "tmp2"
 
 # substitute "xxxxxxxxx Query" with "\n"
-sed 's/[0-9]\+\ Query/\n/g' < "tmp/tmp2" > "tmp/tmp1"
+sed 's/[0-9]\+\ Query/\n/g' < "tmp2" > "tmp1"
 
 # change multi-blank into one space
-sed 's/[\ \r\t]\+/\ /g' < "tmp/tmp1" > "tmp/tmp2"
+sed -e 's/[\ \r\t]\+/\ /g' -e 's/^\ //g' < "tmp1" > $OUT_FILE
 
 #
-sed 's/^\ //g' < "tmp/tmp2" > "tmp/tmp1"
-
-#
-mv "tmp/tmp1" "$OUT_FILE"
-rm "tmp/tmp2"
+rm tmp*
 
 exit 0
