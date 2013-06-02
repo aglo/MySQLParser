@@ -1,29 +1,65 @@
 MySQLParser
 ===========
-
+***
 A Parser for MySQL's SQL.
 
-### WHAT
-以Select语句为例
++ Use JSqlParser for further dev.
+ + [My fork of JSqlParser (support mysql, sid)](https://github.com/ent-worm/JSqlParser)
+ + [Origin wumpz/JSqlParser](https://github.com/wumpz/JSqlParser)
+ + [Origin ultimoamore in Sourceforge.net](http://jsqlparser.sourceforge.net/)
 
+***
+
+### News
+
++ Add # comment
++ Partly supported(Need more test!)
+ + select
+ + insert
+ + update
+ + delete
+
+### Known Issues
++ [TableNames Finder not supported by JSqlParser(#issue6)](https://github.com/aglo/MySQLParser/issues/6)
+ + SET
+ + SHOW
+ + COMMIT
+ + Delete table1, table2 ...
+ + Keywords
+   + EXTRACT
+   + ON DUPLICATE
+
+***
+
+### What
+Take Select as example
+
+```sql
+SELECT * FROM TableName; # comment by ent-worm
 ```
-SELECT * FROM TableName;  
+
++ Type: select
++ Tables name used： TableName
+
+
+### How
+
++ JAVACC, parse statements from top to bottom.
++ tr & sed for clean origin query file
+
+***
+
+### Method
+
+```shell
+./clean.sh input [output]
 ```
 
->+ 一次分析方法后，获得该语句全部信息，保存在一个对象中
->+ 调用对象的方法get\_type()可以知道是哪一类的SQL语句
->+ 调用对象的方法get\_table()可以知道是哪从什么表中获取
->+ 其他的类似，待添加
+```java
+String sql_statement = "select * from table1";
 
-按照JSqlParser的visitor模式，具体代码仍在阅读
+SimpleQuery q = new SimpleQuery(sql_statement);
 
-### HOW
-+ 实际上是一个语法分析的程序，用lex类似程序可以进行词法分析，yacc类似程序来进行语法匹配。  
-目前有一些程序已经可以对SQL语句进行语法分析，调研工作在pre-work目录之中。  
-+ JSqlParser使用JAVACC，JAVACC的语法已经基本了解
-
-### INPUT & OUTPUT
-todo
-
-### EXAMPLE
-todo
+String type = q.getType();
+List<String> tables = q.getTables();
+```

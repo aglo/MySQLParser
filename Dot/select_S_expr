@@ -1,0 +1,56 @@
+(THIS
+    SELECT
+    ( Q_mark 
+        ( OR ALL  DISTINCT  DISTINCTROW  )
+    ( Q_mark HIGH_PRIORITY  )
+    ( Q_mark STRAIGHT_JOIN  )
+    ( Q_mark SQL_SMALL_RESULT  ) 
+    ( Q_mark SQL_BIG_RESULT  ) 
+    ( Q_mark SQL_BUFFER_RESULT  )
+    ( Q_mark 
+        (OR SQL_CACHE SQL_NO_CACHE  ) 
+    ( Q_mark SQL_CALC_FOUND_ROWS  )
+    ( THIS select_expr ( Star_mark  Comma_mark select_expr))
+    ( Q_mark 
+        FROM 
+        table_references
+        ( Q_mark WHERE where_condition  )
+        ( Q_mark 
+            GROUP 
+            BY  
+            ( OR 
+                col_name  
+                expr  
+                position)
+            ( OR ASC DESC)
+            ( Star_mark Comma_mark ) 
+            (Q_mark WITH ROLLUP))
+        (Q_mark HAVING where_condition)
+        ( Q_mark 
+            ORDER 
+            BY 
+            ( OR col_name expr position)
+            ( OR ASC DESC)
+            Comma_mark 
+            (Star 
+                ORDER
+                BY
+                (OR col_name expr position)
+                (OR ASC DESC)))
+        (Q_mark
+            LIMIT 
+            (OR 
+                (THIS (Q_mark offset Comma_mark) row_count)  
+                (THIS row_count OFFSET offset)))
+        (Q_mark PROCEDURE procedure_name (Q_mark argument_list))
+        (Q_mark 
+            OR  
+                (THIS
+                    INTO 
+                    OUTFILE 
+                    file_name
+                    (Q_mark CHARACTER SET charset_name)
+                    export_options)
+                (THIS INTO DUMPFILE file_name)
+                (THIS INTO var_name (OR Comma_mark var_name)))
+        (FOR UPDATE | LOCK IN SHARE MODE)))))

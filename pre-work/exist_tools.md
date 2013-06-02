@@ -32,6 +32,12 @@
         <td>规则明晰，符合官方文档标准</td>
         <td>v3.0已有mysql规则，需评估v4.0是否仍支持，同时需要自己手写规则匹配后的函数</td>
     </tr>
+    <tr>
+        <td>alibaba/druid</td>
+        <td>https://github.com/alibaba/druid/blob/master/src/main/java/com/alibaba/druid/sql/dialect/mysql/parser/MySqlSelectParser.java</td>
+        <td>手写，作者说比ANTLR等自动生成的parser速度要快。除了标准sql外也支持mysql和oracle的sql</td>
+        <td></td>
+    </tr>
 </table>
 
 
@@ -42,6 +48,7 @@ ZQL是一个用JAVA写的SQL语法分析工具，他本身是使用JAVACC来写�
 ### JSqlParser
 + JSqlParser也是一个用JAVACC写的语法分析工具。
 + 与ANTLR的mysql语法规则相比较，该工具语法支持的是标准的SQL语句。
++ 不支持mysql中各种函数，系统变量等
 
 ### JAVACC
 + 相当于yacc的基于JAVA语言的语法分析程序。
